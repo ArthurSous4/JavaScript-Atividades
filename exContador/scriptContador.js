@@ -4,17 +4,23 @@ function contagem() {
     var strinicio = window.document.getElementById("txtinicio")
     var strfim = window.document.getElementById("txtfim")
     var strpasso = document.getElementById("txtpasso")
-    var ini = parseInt(strinicio.value)
-    var fim = parseInt(strfim.value)
+    var ini = strinicio.value.trim()
+    var fim = strfim.value.trim()
     var pass = parseInt(strpasso.value)
     if (pass == 0){
         window.alert("[ERRO] Contagem não é possivel pois Passo = 0")
-    } else if (ini == "" || fim == "") {
+    } else if (ini == "" || fim == "" ) {
         window.alert("[ERRO] Contagem não é possivel, Tente novamente")
     } else {
-        for (c = ini; c <= fim; pass) {
+        ini = parseInt(ini)
+        fim = parseInt(fim)
+        for (c = ini; c <= fim; c += pass) {
             resul.innerHTML += c + " -> "
-            c++
+            
         }
     }
+    resul.innerHTML += "<b>CHEGADA</b>"
+    console.log(pass)
+    console.log(ini)
+    console.log(fim)
 }
